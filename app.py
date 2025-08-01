@@ -103,5 +103,5 @@ if __name__ == '__main__':
         print("✅ Database connection successful!")
     except Exception as e:
         print("❌ Database connection failed:", e)
-    app.run(host='0.0.0.0', port=3000, debug=True)
+    app.run(host='0.0.0.0', port=1000, debug=True)
 
