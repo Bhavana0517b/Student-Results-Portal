@@ -61,4 +61,4 @@ DB_PASS = 'your_password'
 
 4.Run the Flask App:
 python app.py
-Visit http://localhost:1000 in your browser.
+Visit https://student-results-portal-1.onrender.com in your browser.
