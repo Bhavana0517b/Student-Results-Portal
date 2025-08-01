@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Memo</title>
+    <style>
+       table {
+            border-collapse: separate;
+            border-spacing: 15px;
+            margin: 30px auto;
+            background: rgba(192, 192, 192, 0.926);
+            padding: 15px;
+            border-radius: 10px;
+            /* box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+            box-shadow:2px 2px 5px black;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 10px 10px;
+            text-align: center;
+            height:50px;
+            width:180px;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        th{
+            font-size:25px;
+            background-color:rgb(198, 198, 198);
+        }
+        td{
+            font-size:20px;
+        }
+        tr{
+            background-color: rgba(245, 245, 245, 0.7);
+        }
+        /* tr:nth-child(even){
+            background-color: #f0f0f0;
+        } */
+        .refresh-button, button[type="submit"] {
+            margin-top: 20px;
+            padding: 15px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size:20px; 
+        }
+
+        .refresh-button:hover, button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .button-container {
+                    display: flex;
+                    justify-content: center;
+                    gap:90px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    margin-right:50px;
+                    margin-left:580px;
+        }
+
+        body {
+            background-image: url('/static/college/Play Ground.jpg'); /* use the correct case */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom:20px;
+        }
+        .info-container {
+                        display: flex;
+                        justify-content: center;
+                        gap: 120px; /* spacing between the two columns */
+                        margin-top: -35px; /* reduce space below heading */
+                        margin-bottom: 30px;
+        }
+
+        .info-column {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+        }
+
+        .info-column p {
+                    margin: 0;
+                    font-weight:400;
+                    text-align: left;
+                    line-height:40px;
+                    font-size:20px;
+                    color:black;
+        }
+
+        h2{
+            text-align:center;
+            font-size:70px;
+            color:white;
+            text-shadow:5px 5px 5px #000000;
+            margin-top:10px;
+        }
+        h1{
+            text-align:center;
+            color:white;
+        }
+        label {
+            display: block;
+            margin-bottom:5px;
+            font-weight: bold;
+            font-size:20px;
+            text-align:left;
+            margin-top:5px;
+            color:white;
+            margin-left:80px;
+        }
+        input[type="text"] {
+            width:20%;
+            padding: 5px 5px;
+            border: 1px solid #999;
+            border-radius:8px;
+            font-size: 14px;
+            margin-left:-70px;
+            height:20px;
+            width:200px;
+            background-color: rgb(240, 239, 239);
+        }
+        form ,p{
+            color:white;
+            font-size:30px;
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Student Memo</h2>
+    <div class="info-container">
+        <div class="info-column">
+            <p>Hallticket No: {{hall_ticket_no}}</p>
+            <p>student name: {{student_name}}</p>
+            <p>Branch: {{branch}}</p>
+            <p>Year: {{year}}</p>
+        </div>
+         <div class="info-column">
+           <p>Semester: {{semester}}</p>
+           <p>Appeared: {{appeared}}</p>
+           <p>academic_year: {{academic_year}}</p>
+           <p>attempt_type: {{attempt_type}}</p>
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <th>subjects</th>
+            <th>Marks</th>
+            <th>Results</th>
+            <th>Grade</th>
+            <th>Attempt_type</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    {% if has_failed %}
+    <h1>You have failed subjects! Please fill in the reappear details:</h1>
+    <form action="{{ url_for('reappear') }}" method="post">
+        <label for="subjects">Subjects:</label><br>
+        <input type="text" name="subjects" required><br><br>
+
+        <label for="academic_year">Academic Year:</label><br>
+        <input type="text" name="academic_year" required><br><br>
+
+        <label for="attempt_type">Attempt Type:</label><br>
+        <input type="text" name="attempt_type" required><br><br>
+
+
+
+        <div class="button-container">
+            <button type="submit">Submit</button>
+            <button type="button" class="refresh-button" onclick="location.reload();">Refresh</button>
+        </div>
+
+    </form>
+    {% else %}
+    <p>✅ Congratulations! You passed all subjects.</p>
+    {% endif %}
+</body>
+</html>

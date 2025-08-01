@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Student Results - ESUT</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='college/logo.png') }}">
+    </head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="{{ url_for('static', filename='college/logo.png') }}" alt="Kakatiya University Logo">
+        <h1>Earth Sciences University of Telangana</h1>
+    </div>
+    <h2>Students Results</h2>
+    <form method="POST" action="/result">
+        <div class="form-group">
+            <label for="hallticket">Hallticket No:</label>
+            <input type="text" id="hall_ticket_no" name="hall_ticket_no">
+        </div>
+    
+        <div class="form-group">
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" name="branch">
+        </div>
+
+        <div class="form-group">
+            <label for="student_name">student name:</label>
+            <input type="text" id="student_name" name="student_name">
+        </div>
+    
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year">
+        </div>
+    
+        <div class="form-group">
+            <label for="semester">Semester:</label>
+            <input type="text" id="semester" name="semester">
+        </div>
+    
+        <div class="form-group">
+            <label for="appeared">Appeared (Month):</label>
+            <input type="text" id="appeared" name="appeared">
+        </div>
+
+        <div class="form-group">
+            <label for="academic_year">academic_year:</label>
+            <input type="text" id="aacdemic_year" name="academic_year">
+        </div>
+    
+        <div class="form-group">
+            <label for="attempt_type">Attempt Type:</label>
+            <input type="text" id="attempt_type" name="attempt_type">
+        </div>
+    
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
+</body>
+</html>

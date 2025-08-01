@@ -1,0 +1,97 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/static/college/College_image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.container {
+    background: rgba(255, 255, 255,0.4); /* more transparent */
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.header img {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.header h1 {
+    font-size: 35px;
+    margin:20px;
+}
+
+h2 {
+    margin-top:0;
+    font-size: 24px;
+    color: #333;
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group {
+    width:48%;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 5px 6px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left:-20px;
+}
+
+.submit-button {
+    width: 50%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left:150px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+

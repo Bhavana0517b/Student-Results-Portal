@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Memo</title>
+    <style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow:hidden;
+        }
+        body {
+            background-image: url('/static/college/Play Ground.jpg'); /* use the correct case */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+       table {
+            border-collapse: separate;
+            border-spacing: 15px;
+            margin: 30px auto;
+            background: rgba(192, 192, 192, 0.926);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow:2px 2px 5px black;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 10px 10px;
+            text-align: center;
+            height:50px;
+            width:180px;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        th{
+            font-size:25px;
+            background-color:rgb(198, 198, 198);
+        }
+        td{
+            font-size:20px;
+        }
+        tr{
+            background-color: rgba(245, 245, 245, 0.7);
+        }
+        .refresh-button {
+            margin-top: 20px;
+            padding: 15px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size:20px; 
+            margin-left:670px;
+        }
+
+        .refresh-button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 70px;
+            color: white;
+            text-shadow: 5px 5px 5px #000000;
+            margin-top: 10px;
+            margin-bottom: 10px;  /* reduce space below the heading */
+        }
+
+        p {
+            margin: 5px 0;         /* reduce vertical spacing */
+            font-weight: 400;
+            text-align: center;
+            line-height: 28px;     /* reduce line height */
+            font-size: 20px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h2>Student Memo</h2>
+    <p>subjects: {{ subjects}}</p>
+    <p>academic_year: {{ academic_year }}</p>
+    <p>attempt_type: {{ attempt_type }}</p>
+    <table>
+        <tr>
+            <th>subjects</th>
+            <th>Marks</th>
+            <th>Results</th>
+            <th>Grade</th>
+            <th>Attempt_type</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if results %}
+    <form action="/refresh" method="get">
+        <button class="refresh-button" type="submit">Refresh</button>
+    </form>
+    {% endif %}
+</body>
+</html>
